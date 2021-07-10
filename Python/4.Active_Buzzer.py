@@ -11,22 +11,22 @@ def setup():
 	GPIO.setmode(GPIO.BCM)
 	# Set LedPin's mode to output,
 	# and initial level to High(3.3v)
-	GPIO.setup(BeepPin, GPIO.OUT, initial=GPIO.HIGH)
+	GPIO.setup(BeepPin, GPIO.OUT, initial=GPIO.LOW)
 
 def main():
 	while True:
 		# Buzzer on (Beep)
 		print ('Buzzer On')
-		GPIO.output(BeepPin, GPIO.LOW)
+		GPIO.output(BeepPin, GPIO.HIGH)
 		time.sleep(3)
 		# Buzzer off
 		print ('Buzzer Off')
-		GPIO.output(BeepPin, GPIO.HIGH)
+		GPIO.output(BeepPin, GPIO.LOW)
 		time.sleep(3)
 
 def destroy():
 	# Turn off buzzer
-	GPIO.output(BeepPin, GPIO.HIGH)
+	GPIO.output(BeepPin, GPIO.LOW)
 	# Release resource
 	GPIO.cleanup()
 
